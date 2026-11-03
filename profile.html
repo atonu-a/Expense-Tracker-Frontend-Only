@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>প্রোফাইল</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="profile">
+  <header class="nav">
+    <h1>💰 ট্রাকার</h1>
+    <nav>
+      <a href="index.html">হোম</a>
+      <a href="profile.html" class="active">প্রোফাইল</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 id="pName"></h2>
+      <p id="pEmail" class="muted"></p>
+    </section>
+
+    <section class="card income">
+      <span>মোট ইনকাম (লাইফটাইম)</span>
+      <h3 id="totalIncome">৳0</h3>
+    </section>
+
+    <section class="card expense">
+      <span>মোট খরচ (লাইফটাইম)</span>
+      <h3 id="totalExpense">৳0</h3>
+    </section>
+
+    <button id="logoutBtn" class="btn danger big">লগআউট</button>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
