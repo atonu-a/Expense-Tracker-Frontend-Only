@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>রেজিস্টার</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="register" class="auth">
+  <form id="registerForm" class="card auth-box">
+    <h2>রেজিস্টার</h2>
+    <input type="text" id="name" placeholder="নাম" required>
+    <input type="email" id="email" placeholder="ইমেইল" required>
+    <input type="password" id="password" placeholder="পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)" required>
+    <p id="error" class="error"></p>
+    <button class="btn primary" type="submit">একাউন্ট খুলুন</button>
+    <p class="muted">আগেই একাউন্ট আছে? <a href="login.html">লগইন</a></p>
+  </form>
+  <script src="app.js"></script>
+</body>
+</html>
