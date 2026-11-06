@@ -1,61 +1,62 @@
-# 💰 এক্সপেন্স ট্রাকার
+# 💰 Expense Tracker
 
-HTML, CSS ও JavaScript দিয়ে বানানো একটি সিম্পল ইনকাম-এক্সপেন্স ট্রাকার (ফ্রন্টেন্ড)। ডাটা ব্রাউজারের `localStorage`-এ সেভ হয়, তাই পেইজ রিফ্রেশ করলেও ডাটা থাকে।
+A simple income and expense tracker (frontend only) built with HTML, CSS, and JavaScript. Data is saved in the browser's `localStorage`, so it persists across page refreshes.
 
-## ফিচার
+## Features
 
-- রেজিস্টার, লগইন ও লগআউট
-- হোম পেইজে **ব্যালেন্স** (লাইফটাইম ইনকাম − লাইফটাইম খরচ)
-- হোম পেইজে **এই মাসের খরচ**, মাস বদলালে নিজে থেকেই ০ থেকে শুরু হয়
-- "যোগ করুন" বাটনে ক্লিক করে **খরচ / ইনকাম** সিলেক্ট করে এমাউন্ট ও নোট যোগ করা
-- সাম্প্রতিক লেনদেনের তালিকা
-- প্রোফাইল পেইজে **মোট ইনকাম** ও **মোট খরচ** (লাইফটাইম)
-- লগইন ছাড়া হোম বা প্রোফাইলে ঢুকলে অটো লগইন পেইজে চলে যায়
-- মোবাইল-ফ্রেন্ডলি ডিজাইন
+- Register, login, and logout
+- **Balance** on the home page (lifetime income − lifetime expense)
+- **This month's expense** on the home page, which automatically starts from zero when a new month begins
+- Click the "Add" button, choose **Expense / Income**, then enter an amount and an optional note
+- Recent transactions list
+- **Total income** and **total expense** (lifetime) on the profile page
+- Visiting Home or Profile without logging in redirects to the login page
+- Mobile-friendly design
 
-## ফাইল স্ট্রাকচার
+## File Structure
 
 ```
-├── index.html      # হোম পেইজ
-├── login.html      # লগইন পেইজ
-├── register.html   # রেজিস্টার পেইজ
-├── profile.html    # প্রোফাইল পেইজ
-├── style.css       # সব পেইজের স্টাইল
-└── app.js          # সব পেইজের লজিক
+├── index.html      # Home page
+├── login.html      # Login page
+├── register.html   # Register page
+├── profile.html    # Profile page
+├── style.css       # Styles for all pages
+└── app.js          # Logic for all pages
 ```
 
-## চালানোর নিয়ম
+## How to Run
 
-1. সব ফাইল একই ফোল্ডারে রাখুন।
-2. `register.html` ব্রাউজারে খুলুন (ডাবল ক্লিক বা VS Code-এর Live Server)।
-3. একাউন্ট খুলে হোম পেইজ থেকে খরচ/ইনকাম যোগ করুন।
+1. Put all files in the same folder.
+2. Open `register.html` in a browser (double-click it, or use VS Code's Live Server).
+3. Create an account, then add expenses and income from the home page.
 
-অতিরিক্ত কিছু ইনস্টল করার দরকার নেই।
+No installation or dependencies required.
 
-## কীভাবে কাজ করে
+## How It Works
 
-| জিনিস | হিসাব |
+| Item | Calculation |
 |---|---|
-| ব্যালেন্স | মোট ইনকাম − মোট খরচ (কখনো রিসেট হয় না) |
-| এই মাসের খরচ | শুধু চলতি মাস ও বছরের খরচের যোগফল |
-| প্রোফাইলের মোট ইনকাম / খরচ | শুরু থেকে এখন পর্যন্ত সব এন্ট্রির যোগফল |
+| Balance | Total income − total expense (never resets) |
+| This month's expense | Sum of expenses in the current month and year only |
+| Profile total income / expense | Sum of all entries from the beginning until now |
 
-## `app.js`-এর গঠন
+## Structure of `app.js`
 
-- **`Store`**: `localStorage` থেকে ডাটা পড়া ও লেখার অংশ
-- **`Auth`**: রেজিস্টার, লগইন, লগআউট ও সেশন চেক
-- **`addTx` / `getStats`**: লেনদেন যোগ করা ও হিসাব বের করা
-- **`pages`**: প্রতিটি পেইজের আলাদা লজিক (`<body data-page="...">` দেখে সঠিকটা চলে)
+- **`Store`**: reads and writes data in `localStorage`
+- **`Auth`**: register, login, logout, and session checks
+- **`addTx` / `getStats`**: adds transactions and calculates totals
+- **`pages`**: separate logic for each page (the right one runs based on `<body data-page="...">`)
 
-## সীমাবদ্ধতা
+## Limitations
 
-- ডাটা শুধু ওই ব্রাউজার ও ডিভাইসে থাকে, ব্রাউজারের ডাটা ক্লিয়ার করলে মুছে যাবে।
-- পাসওয়ার্ড প্লেইন টেক্সটে সেভ হয়, তাই এটি শুধু ডেমো/শেখার জন্য, আসল ব্যবহারের জন্য নিরাপদ নয়।
-- এডিট বা ডিলিট অপশন এখনো নেই।
+- Data lives only in that browser on that device and is lost if browser data is cleared.
+- Passwords are stored as plain text, so this is for demo and learning purposes only and is not safe for real use.
+- There is no edit or delete option yet.
 
-## ভবিষ্যতে যোগ করার আইডিয়া
+## Future Ideas
 
-- লেনদেন এডিট ও ডিলিট
-- ক্যাটাগরি (খাবার, যাতায়াত, বিল ইত্যাদি)
-- মাসভিত্তিক রিপোর্ট ও চার্ট
-- ডার্ক মোড
+- Edit and delete transactions
+- Categories (food, transport, bills, etc.)
+- Monthly reports and charts
+- Dark mode
+- Backend integration: replace the `Store` section in `app.js` with API calls and add a database
